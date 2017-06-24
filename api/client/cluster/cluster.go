@@ -28,7 +28,7 @@ func NewClusterClient(host, version string) (*client.Client, error) {
 		version = cluster.APIVersion
 	}
 
-	return client.NewClient(host, version)
+	return client.NewClient(host, version, "")
 }
 
 // GetSupportedClusterVersions returns a list of supported versions of the Cluster API
@@ -37,7 +37,7 @@ func GetSupportedClusterVersions(host string) ([]string, error) {
 	if host == "" {
 		host = client.GetUnixServerPath(OsdSocket, cluster.APIBase)
 	}
-	client, err := client.NewClient(host, "")
+	client, err := client.NewClient(host, "", "")
 	if err != nil {
 		return []string{}, err
 	}

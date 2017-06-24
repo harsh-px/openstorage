@@ -16,7 +16,7 @@ var (
 )
 
 // NewClient returns a new REST client for specified server.
-func NewClient(host string, version string) (*Client, error) {
+func NewClient(host, version, clientName string) (*Client, error) {
 	baseURL, err := url.Parse(host)
 	if err != nil {
 		return nil, err
@@ -33,6 +33,7 @@ func NewClient(host string, version string) (*Client, error) {
 		base:       baseURL,
 		version:    version,
 		httpClient: hClient,
+		userAgent: fmt.Sprintf("%v/%v", clientName, version),
 	}
 	return c, nil
 }
@@ -54,6 +55,7 @@ type Client struct {
 	base       *url.URL
 	version    string
 	httpClient *http.Client
+	userAgent string
 }
 
 // Status sends a Status request at the /status REST endpoint.
@@ -72,22 +74,22 @@ func (c *Client) Versions(endpoint string) ([]string, error) {
 
 // Get returns a Request object setup for GET call.
 func (c *Client) Get() *Request {
-	return NewRequest(c.httpClient, c.base, "GET", c.version)
+	return NewRequest(c.httpClient, c.base, "GET", c.version, c.userAgent)
 }
 
 // Post returns a Request object setup for POST call.
 func (c *Client) Post() *Request {
-	return NewRequest(c.httpClient, c.base, "POST", c.version)
+	return NewRequest(c.httpClient, c.base, "POST", c.version, c.userAgent)
 }
 
 // Put returns a Request object setup for PUT call.
 func (c *Client) Put() *Request {
-	return NewRequest(c.httpClient, c.base, "PUT", c.version)
+	return NewRequest(c.httpClient, c.base, "PUT", c.version, c.userAgent)
 }
 
 // Delete returns a Request object setup for DELETE call.
 func (c *Client) Delete() *Request {
-	return NewRequest(c.httpClient, c.base, "DELETE", c.version)
+	return NewRequest(c.httpClient, c.base, "DELETE", c.version, c.userAgent)
 }
 
 func unix2HTTP(u *url.URL) {
