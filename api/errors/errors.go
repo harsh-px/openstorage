@@ -2,9 +2,9 @@ package errors
 
 import "fmt"
 
-// ErrNotFound Error type for objects not found
+// ErrNotFound error type for objects not found
 type ErrNotFound struct {
-	// ID of the object which wasn't found
+	// ID unique object identifier.
 	ID   string
 	// Type of the object which wasn't found
 	Type string
