@@ -885,6 +885,30 @@
 			"revisionTime": "2016-03-31T22:59:36Z"
 		},
 		{
+			"checksumSHA1": "KNvbU1r5jv0CBeQLnEtDoL3dRtc=",
+			"path": "github.com/hashicorp/terraform/helper/hashcode",
+			"revision": "dbce85d85ff0beebc660b3d1805b4ef15361af00",
+			"revisionTime": "2018-04-05T19:25:37Z"
+		},
+		{
+			"checksumSHA1": "BAXV9ruAyno3aFgwYI2/wWzB2Gc=",
+			"path": "github.com/hashicorp/terraform/helper/logging",
+			"revision": "dbce85d85ff0beebc660b3d1805b4ef15361af00",
+			"revisionTime": "2018-04-05T19:25:37Z"
+		},
+		{
+			"checksumSHA1": "ryCWu7RtMlYrAfSevaI7RtaXe98=",
+			"path": "github.com/hashicorp/terraform/helper/resource",
+			"revision": "dbce85d85ff0beebc660b3d1805b4ef15361af00",
+			"revisionTime": "2018-04-05T19:25:37Z"
+		},
+		{
+			"checksumSHA1": "krfUlF/Ix06MtVAKUmVmiIBsouM=",
+			"path": "github.com/hashicorp/terraform/helper/schema",
+			"revision": "dbce85d85ff0beebc660b3d1805b4ef15361af00",
+			"revisionTime": "2018-04-05T19:25:37Z"
+		},
+		{
 			"checksumSHA1": "0ZrwvB6KoGPj2PoDNSEJwxQ6Mog=",
 			"path": "github.com/jmespath/go-jmespath",
 			"revision": "0b12d6b521d83fc7f755e7cfc1b1fbdd35a01a74",
@@ -1479,6 +1503,12 @@
 			"revisionTime": "2017-10-17T21:40:25Z"
 		},
 		{
+			"checksumSHA1": "NLTyYVX4dn8jV1iad7p494AiZ8E=",
+			"path": "github.com/renier/xmlrpc",
+			"revision": "ce4a1a486c03a3c6e1816df25b8c559d1879d380",
+			"revisionTime": "2017-07-08T15:45:48Z"
+		},
+		{
 			"checksumSHA1": "cKNzpMpci3WUAzXpe+tVnBv2cjE=",
 			"path": "github.com/satori/go.uuid",
 			"revision": "f9ab0dce87d815821e221626b772e3475a0d2749",
@@ -1489,6 +1519,54 @@
 			"path": "github.com/sirupsen/logrus",
 			"revision": "90150a8ed11b6ce285e77e8af2b0109559ce4777",
 			"revisionTime": "2018-03-15T01:07:03Z"
+		},
+		{
+			"checksumSHA1": "KeNIYJQUdE6o196SaYuLMmjEPZM=",
+			"path": "github.com/softlayer/softlayer-go/config",
+			"revision": "838aaaa2076827b70abc68aa1c1b143eea1238a8",
+			"revisionTime": "2018-09-03T16:55:26Z"
+		},
+		{
+			"checksumSHA1": "TvggPTrgunaPGuDrQ/9pd3PDQ5w=",
+			"path": "github.com/softlayer/softlayer-go/datatypes",
+			"revision": "838aaaa2076827b70abc68aa1c1b143eea1238a8",
+			"revisionTime": "2018-09-03T16:55:26Z"
+		},
+		{
+			"checksumSHA1": "5McX4q+mXpfYWBSde87Wjb4UoPs=",
+			"path": "github.com/softlayer/softlayer-go/helpers/location",
+			"revision": "838aaaa2076827b70abc68aa1c1b143eea1238a8",
+			"revisionTime": "2018-09-03T16:55:26Z"
+		},
+		{
+			"checksumSHA1": "r0ijpEVlR3yuirWa/4b6yCDIjEE=",
+			"path": "github.com/softlayer/softlayer-go/helpers/network",
+			"revision": "838aaaa2076827b70abc68aa1c1b143eea1238a8",
+			"revisionTime": "2018-09-03T16:55:26Z"
+		},
+		{
+			"checksumSHA1": "oBE+UG7QYhzWwpS9Jb428/RgiAg=",
+			"path": "github.com/softlayer/softlayer-go/helpers/product",
+			"revision": "838aaaa2076827b70abc68aa1c1b143eea1238a8",
+			"revisionTime": "2018-09-03T16:55:26Z"
+		},
+		{
+			"checksumSHA1": "orSHaAUDsWMjmNA45RtG6/ug7OQ=",
+			"path": "github.com/softlayer/softlayer-go/services",
+			"revision": "838aaaa2076827b70abc68aa1c1b143eea1238a8",
+			"revisionTime": "2018-09-03T16:55:26Z"
+		},
+		{
+			"checksumSHA1": "p+QEJXM90QSIslpM2swcK4Pwc28=",
+			"path": "github.com/softlayer/softlayer-go/session",
+			"revision": "838aaaa2076827b70abc68aa1c1b143eea1238a8",
+			"revisionTime": "2018-09-03T16:55:26Z"
+		},
+		{
+			"checksumSHA1": "rRLFLMdzIFBSVSNDy34s01ZYGjs=",
+			"path": "github.com/softlayer/softlayer-go/sl",
+			"revision": "838aaaa2076827b70abc68aa1c1b143eea1238a8",
+			"revisionTime": "2018-09-03T16:55:26Z"
 		},
 		{
 			"checksumSHA1": "hIqjKFj2xCIhm89ccyrIezt5h7g=",
