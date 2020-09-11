@@ -3,6 +3,8 @@ package cluster
 import (
 	"time"
 
+	"github.com/libopenstorage/openstorage/pkg/clouddrive"
+
 	"github.com/libopenstorage/gossip/types"
 	"github.com/libopenstorage/openstorage/api"
 	"github.com/libopenstorage/openstorage/objectstore"
@@ -29,6 +31,7 @@ type NullClusterManager struct {
 	objectstore.NullObjectStoreMgr
 	clusterdomain.NullClusterDomainManager
 	storagepool.UnsupportedPoolProvider
+	clouddrive.UnsupportedCloudDriveSetProvider
 	nodedrain.UnsupportedNodeDrainProvider
 }
 

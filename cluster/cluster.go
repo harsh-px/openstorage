@@ -50,6 +50,8 @@ type ClusterServerConfiguration struct {
 	ConfigClusterDomainProvider clusterdomain.ClusterDomainProvider
 	// holds implementation to the OpenStoragePoolServer interface
 	ConfigStoragePoolProvider api.OpenStoragePoolServer
+	// holds implementation to the OpenStorageCloudDriveSetServer interface
+	ConfigCloudDriveSetProvider api.OpenStorageCloudDriveSetServer
 	// holds implementation to the NodeDrainProvider interface
 	ConfigNodeDrainProvider nodedrain.Provider
 }
@@ -384,6 +386,7 @@ type Cluster interface {
 	sched.SchedulePolicyProvider
 	objectstore.ObjectStore
 	api.OpenStoragePoolServer
+	api.OpenStorageCloudDriveSetServer
 	nodedrain.Provider
 }
 

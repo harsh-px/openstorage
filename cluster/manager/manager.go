@@ -16,6 +16,8 @@ import (
 	"sync"
 	"time"
 
+	"github.com/libopenstorage/openstorage/pkg/clouddrive"
+
 	"github.com/libopenstorage/openstorage/pkg/nodedrain"
 	"github.com/libopenstorage/openstorage/pkg/storagepool"
 
@@ -58,31 +60,32 @@ var (
 
 // ClusterManager implements the cluster interface
 type ClusterManager struct {
-	size                 int
-	listeners            *list.List
-	config               config.ClusterConfig
-	kv                   kvdb.Kvdb
-	status               api.Status
-	nodeCache            map[string]api.Node // Cached info on the nodes in the cluster.
-	nodeCacheLock        sync.Mutex
-	nodeStatuses         map[string]api.Status // Set of nodes currently marked down.
-	gossip               gossip.Gossiper
-	gossipVersion        string
-	gossipPort           string
-	gEnabled             bool
-	selfNode             api.Node
-	selfNodeLock         sync.Mutex // Lock that guards data and label of selfNode
-	system               systemutils.System
-	configManager        osdconfig.ConfigCaller
-	schedManager         sched.SchedulePolicyProvider
-	objstoreManager      objectstore.ObjectStore
-	secretsManager       secrets.Secrets
-	systemTokenManager   auth.TokenGenerator
-	clusterDomainManager clusterdomain.ClusterDomainProvider
-	storagePoolProvider  api.OpenStoragePoolServer
-	nodeDrainProvider    nodedrain.Provider
-	snapshotPrefixes     []string
-	selfClusterDomain    string
+	size                  int
+	listeners             *list.List
+	config                config.ClusterConfig
+	kv                    kvdb.Kvdb
+	status                api.Status
+	nodeCache             map[string]api.Node // Cached info on the nodes in the cluster.
+	nodeCacheLock         sync.Mutex
+	nodeStatuses          map[string]api.Status // Set of nodes currently marked down.
+	gossip                gossip.Gossiper
+	gossipVersion         string
+	gossipPort            string
+	gEnabled              bool
+	selfNode              api.Node
+	selfNodeLock          sync.Mutex // Lock that guards data and label of selfNode
+	system                systemutils.System
+	configManager         osdconfig.ConfigCaller
+	schedManager          sched.SchedulePolicyProvider
+	objstoreManager       objectstore.ObjectStore
+	secretsManager        secrets.Secrets
+	systemTokenManager    auth.TokenGenerator
+	clusterDomainManager  clusterdomain.ClusterDomainProvider
+	storagePoolProvider   api.OpenStoragePoolServer
+	cloudDriveSetProvider api.OpenStorageCloudDriveSetServer
+	nodeDrainProvider     nodedrain.Provider
+	snapshotPrefixes      []string
+	selfClusterDomain     string
 	// kvdbWatchIndex stores the kvdb index to start the watch
 	kvdbWatchIndex uint64
 }
@@ -1321,6 +1324,12 @@ func (c *ClusterManager) setupManagers(config *cluster.ClusterServerConfiguratio
 	} else {
 		c.storagePoolProvider = config.ConfigStoragePoolProvider
 	}
+
+	if config.ConfigCloudDriveSetProvider == nil {
+		c.cloudDriveSetProvider = clouddrive.NewDefaultCloudDriveSetProvider()
+	} else {
+		c.cloudDriveSetProvider = config.ConfigCloudDriveSetProvider
+	}
 }
 
 // Start initiates the cluster manager and the cluster state machine
@@ -2043,6 +2052,11 @@ func (c *ClusterManager) GetRebalanceJobStatus(
 func (c *ClusterManager) EnumerateRebalanceJobs(
 	context context.Context, request *api.SdkEnumerateRebalanceJobsRequest) (*api.SdkEnumerateRebalanceJobsResponse, error) {
 	return c.storagePoolProvider.EnumerateRebalanceJobs(context, request)
+}
+
+func (c *ClusterManager) Detach(
+	ctx context.Context, req *api.SdkCloudDriveSetDetachRequest) (*api.SdkCloudDriveSetDetachResponse, error) {
+	return c.cloudDriveSetProvider.Detach(ctx, req)
 }
 
 func (c *ClusterManager) Drain(ctx context.Context, req *api.SdkNodeDrainRequest) (*api.SdkNodeDrainResponse, error) {

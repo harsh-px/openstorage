@@ -140,6 +140,21 @@ func (mr *MockClusterMockRecorder) DeletePair(arg0 interface{}) *gomock.Call {
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeletePair", reflect.TypeOf((*MockCluster)(nil).DeletePair), arg0)
 }
 
+// Detach mocks base method.
+func (m *MockCluster) Detach(arg0 context.Context, arg1 *api.SdkCloudDriveSetDetachRequest) (*api.SdkCloudDriveSetDetachResponse, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "Detach", arg0, arg1)
+	ret0, _ := ret[0].(*api.SdkCloudDriveSetDetachResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// Detach indicates an expected call of Detach.
+func (mr *MockClusterMockRecorder) Detach(arg0, arg1 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Detach", reflect.TypeOf((*MockCluster)(nil).Detach), arg0, arg1)
+}
+
 // DisableUpdates mocks base method.
 func (m *MockCluster) DisableUpdates() error {
 	m.ctrl.T.Helper()

@@ -2269,6 +2269,10 @@
         "title": "CloudBackup status types",
         "type": "string"
       },
+      "apiSdkCloudDriveSetDetachResponse": {
+        "title": "Empty response",
+        "type": "object"
+      },
       "apiSdkCloudMigrateCancelRequest": {
         "properties": {
           "request": {
@@ -5683,6 +5687,37 @@
         "summary": "Status returns the status of any cloud backups of a volume",
         "tags": [
           "OpenStorageCloudBackup"
+        ]
+      }
+    },
+    "/v1/clouddrives/{id}": {
+      "put": {
+        "operationId": "Detach",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/apiSdkCloudDriveSetDetachResponse"
+                }
+              }
+            },
+            "description": ""
+          }
+        },
+        "summary": "Detach detaches the given drive set",
+        "tags": [
+          "OpenStorageCloudDriveSet"
         ]
       }
     },

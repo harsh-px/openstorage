@@ -5138,3 +5138,25 @@ message SdkVolumeCatalogResponse {
   // Catalog
   CatalogResponse catalog = 1;
 }
+
+// Defines a request object to detach a cloud drive
+message SdkCloudDriveSetDetachRequest {
+  // ID of the cloud drive to detach
+  string id = 1;
+
+}
+
+// Empty response
+message SdkCloudDriveSetDetachResponse {
+}
+
+// OpenStorageCloudDriveSet is a service used to manage cloud drives in the cluster
+service OpenStorageCloudDriveSet {
+  // Detach detaches the given drive set
+  rpc Detach(SdkCloudDriveSetDetachRequest)
+  returns (SdkCloudDriveSetDetachResponse) {
+    option(google.api.http) = {
+        put: "/v1/clouddrives/{id}"
+      };
+  }
+}
