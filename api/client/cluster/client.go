@@ -5,6 +5,8 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/libopenstorage/openstorage/pkg/clouddrive"
+
 	"github.com/libopenstorage/gossip/types"
 	"github.com/libopenstorage/openstorage/api"
 	"github.com/libopenstorage/openstorage/api/client"
@@ -30,6 +32,7 @@ const (
 type clusterClient struct {
 	clusterdomain.NullClusterDomainManager
 	storagepool.UnsupportedPoolProvider
+	clouddrive.UnsupportedCloudDriveSetProvider
 	nodedrain.UnsupportedNodeDrainProvider
 	c *client.Client
 }
