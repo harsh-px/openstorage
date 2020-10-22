@@ -1749,6 +1749,22 @@ service OpenStoragePool {
         get: "/v1/storagepools/rebalance/job"
       };
   }
+
+//  // EnterMaintenance enters the give pool in maintenance mode
+//  rpc EnterMaintenance(SdkEnterMaintenanceRequest)
+//  returns (SdkEnterMaintenanceResponse) {
+//    option(google.api.http) = {
+//        put: "/v1/storagepools/entermaintenance/{uuid}"
+//      };
+//  }
+//
+//  // ExitMaintenance enters the give pool in maintenance mode
+//  rpc ExitMaintenance(SdkExitMaintenanceRequest)
+//  returns (SdkExitMaintenanceResponse) {
+//    option(google.api.http) = {
+//        put: "/v1/storagepools/exitmaintenance/{uuid}"
+//      };
+//  }
 }
 
 
@@ -3657,6 +3673,24 @@ message SdkEnumerateRebalanceJobsRequest  {
 message SdkEnumerateRebalanceJobsResponse {
   // Jobs is the list of rebalance jobs in the response
   repeated StorageRebalanceJob jobs = 1;
+}
+
+message SdkExitMaintenanceRequest {
+  // UUID of the storage pool
+  string uuid = 1;
+}
+
+message SdkExitMaintenanceResponse {
+
+}
+
+message SdkEnterMaintenanceRequest {
+  // UUID of the storage pool
+  string uuid = 1;
+}
+
+message SdkEnterMaintenanceResponse {
+
 }
 
 message SdkStoragePool {
