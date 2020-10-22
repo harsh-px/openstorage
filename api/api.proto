@@ -1750,7 +1750,7 @@ service OpenStoragePool {
       };
   }
 
-//  // EnterMaintenance enters the give pool in maintenance mode
+  // EnterMaintenance enters the give pool in maintenance mode
 //  rpc EnterMaintenance(SdkEnterMaintenanceRequest)
 //  returns (SdkEnterMaintenanceResponse) {
 //    option(google.api.http) = {
@@ -3710,6 +3710,8 @@ message SdkStoragePool {
   enum OperationType {
     // Resize operation
     OPERATION_RESIZE = 0;
+    // Enter maintenance operation
+    OPERATION_ENTER_MAINTENANCE = 1;
   }
 
   // Defines the operation types available to resize a storage pool

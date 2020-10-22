@@ -40,3 +40,13 @@ func (n *UnsupportedPoolProvider) GetRebalanceJobStatus(
 	c context.Context, request *api.SdkGetRebalanceJobStatusRequest) (*api.SdkGetRebalanceJobStatusResponse, error) {
 	panic("implement me")
 }
+
+func (n *UnsupportedPoolProvider) EnterMaintenance(
+	c context.Context, request *api.SdkEnterMaintenanceRequest) (*api.SdkEnterMaintenanceResponse, error) {
+	return nil, &errors.ErrNotSupported{}
+}
+
+func (n *UnsupportedPoolProvider) ExitMaintenance(
+	c context.Context, request *api.SdkExitMaintenanceRequest) (*api.SdkExitMaintenanceResponse, error) {
+	return nil, &errors.ErrNotSupported{}
+}

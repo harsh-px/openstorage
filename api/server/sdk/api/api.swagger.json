@@ -3272,9 +3272,10 @@
       },
       "apiSdkStoragePoolOperationType": {
         "default": "OPERATION_RESIZE",
-        "description": "- OPERATION_RESIZE: Resize operation",
+        "description": "- OPERATION_RESIZE: Resize operation\n - OPERATION_ENTER_MAINTENANCE: Enter maintenance operation",
         "enum": [
-          "OPERATION_RESIZE"
+          "OPERATION_RESIZE",
+          "OPERATION_ENTER_MAINTENANCE"
         ],
         "title": "OperationType defines the various operations that are performed on a storage pool",
         "type": "string"
